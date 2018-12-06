@@ -75,6 +75,11 @@ function tryGitInit(appPath) {
   }
 }
 
+function helloLarkinTuckerLLCDirections() {
+  console.log(chalk.yellow('Hello Larkin & Tucker LLC Directions'));
+  console.log('Hello World');
+}
+
 module.exports = function(
   appPath,
   appName,
@@ -256,6 +261,7 @@ module.exports = function(
   }
   console.log();
   console.log('Happy hacking!');
+  helloLarkinTuckerLLCDirections();
 };
 
 function isReactInstalled(appPackage) {
