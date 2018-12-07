@@ -50,6 +50,11 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
+// hello-larkintuckerllc-react-scripts start
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+// hello-larkintuckerllc-react-scripts end
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -495,6 +500,41 @@ module.exports = function(webpackEnv) {
                 'sass-loader'
               ),
             },
+            // hello-larkintuckerllc-react-scripts start
+            // Opt-in support for Less (using .less extensions).
+            // By default we support Less Modules with the
+            // extensions .module.less
+            {
+              test: lessRegex,
+              exclude: sassModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
+                'less-loader'
+              ),
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
+              sideEffects: true,
+            },
+            // Adds support for CSS Modules, but using Less
+            // using the extension .module.less
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+                'sass-loader'
+              ),
+            },
+            // hello-larkintuckerllc-react-scripts end
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.

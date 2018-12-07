@@ -57,3 +57,10 @@ declare module '*.module.sass' {
   const classes: { [key: string]: string };
   export default classes;
 }
+
+// hello-larkintuckerllc-react-scripts start
+declare module '*.module.less' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+// hello-larkintuckerllc-react-scripts end
