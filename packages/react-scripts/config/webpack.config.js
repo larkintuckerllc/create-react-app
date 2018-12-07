@@ -531,7 +531,7 @@ module.exports = function(webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader'
+                'less-loader'
               ),
             },
             // hello-larkintuckerllc-react-scripts end
