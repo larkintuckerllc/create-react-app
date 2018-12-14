@@ -252,7 +252,9 @@ function verifyTypeScriptSetup() {
   if (!fs.existsSync(paths.appTypeDeclarations)) {
     fs.writeFileSync(
       paths.appTypeDeclarations,
-      `/// <reference types="react-scripts" />${os.EOL}`
+      // hello-larkintuckerllc-react-scripts start
+      `/// <reference types="hello-larkintuckerllc-react-scripts" />${os.EOL}`
+      // hello-larkintuckerllc-react-scripts end
     );
   }
 }
